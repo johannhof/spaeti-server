@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^dev/(.*) http://localhost:7224/$1 [P]
+RewriteRule ^mongo/(.*) http://localhost:20553/$1 [P]
+RewriteRule ^admin/(.*) http://localhost:8523/$1 [P]
