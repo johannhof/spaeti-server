@@ -19,7 +19,8 @@ var spaetiSchema = new Schema({
     assortment : [String],
     location : {
         city : String,
-        geo : String,
+        lng : String,
+        lat : String,
         postalCode : String,
         street : String
     },
@@ -50,15 +51,15 @@ exports.delete = function (req, res) {
         if(err) {
             res.send(err);
         } else {
-            res.send({status : 1})
+            res.send({status : "deleted"});
         }
     });
 };
 
 exports.findById = function (req, res) {
-    return Spaeti.findById(req.params.id, function (err, product) {
+    return Spaeti.findById(req.params.id, function (err, spaeti) {
         if(!err) {
-            res.send(product);
+            res.send(spaeti);
         } else {
             res.send(err);
         }
@@ -70,21 +71,41 @@ exports.add = function (req, res) {
         name : req.body.name,
         markedByOwner : false,
         location : {
-            city : req.body.city,
-            geo : req.body.geo,
-            postalCode : req.body.postalCode,
-            street : req.body.street
+            city : req.body.location.city,
+            lng : req.body.location.lng,
+            lat : req.body.location.lat,
+            postalCode : req.body.location.postalCode,
+            street : req.body.location.street
+        },
+        businessHours : {
+            closed : req.body.businessHours.closed,
+            opened : req.body.businessHours.opened
         }
     });
     entry.save(function (err) {
         if(err) {
-            res.send("Error saving Spaeti");
+            res.send({"status" : "error"});
         } else {
-            res.send("Success!");
+            res.send({ "status" : "created", "_id" : entry._id, "url" : "/spaeti/" + entry._id, "name" : req.body.name});
         }
     });
 };
 
 exports.update = function (req, res) {
+    Spaeti.findById(req.params.id, function (err, spaeti) {
+        spaeti.name = req.body.name || spaeti.name;
+        spaeti.location.city = req.body.location.city || spaeti.location.city;
+        spaeti.location.lng = req.body.location.lng || spaeti.location.lng;
+        spaeti.location.lat = req.body.location.lat || spaeti.location.lat;
+        spaeti.location.postalCode = req.body.location.postalCode || spaeti.location.postalCode;
+        spaeti.location.street = req.body.location.street || spaeti.location.street;
 
+        spaeti.save(function (err) {
+            if(err) {
+                res.send({"status" : "error"});
+            } else {
+                res.send({ "status" : "updated", "_id" : spaeti._id, "url" : "/spaeti/" + spaeti._id });
+            }
+        });
+    });
 };
