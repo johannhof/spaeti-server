@@ -1,22 +1,16 @@
 var express = require('express'),
-  routes = require('./routes'),
-  spaeti = require("./routes/spaeti"),
-  http = require('http'),
-  path = require('path'),
-  config = require('./config.json'),
-  mongoose = require("mongoose");
+    spaeti = require("./routes/spaeti"),
+    http = require('http'),
+    path = require('path'),
+    config = require('./config.json'),
+    mongoose = require("mongoose");
 
 var app = express();
-
-var test = "not connected";
 
 mongoose.connect("mongodb://" + config.mongo_user + ":" + config.mongo_pw + "@localhost:" + config.mongo_port + "/" + config.mongo_db);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback() {
-  test = "connected";
-});
 
 // all environments
 app.set('port', config.port);
@@ -31,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 app.get("/spaeti", spaeti.getAll);
@@ -42,5 +36,5 @@ app.delete("/spaeti/:id", spaeti.delete);
 app.put("/spaeti/:id", spaeti.update);
 
 http.createServer(app).listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });

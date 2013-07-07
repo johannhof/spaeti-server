@@ -16,12 +16,15 @@ var spaetiSchema = new Schema({
             comment : String
         }
     },
-    assortment : [String],
+    assortment : {
+        pizza : Boolean,
+        condoms : Boolean,
+        newspapers : Boolean,
+        chips : Boolean
+    },
     location : {
-        city : String,
         lng : String,
         lat : String,
-        postalCode : String,
         street : String
     },
     ratings : [
@@ -72,15 +75,19 @@ exports.add = function (req, res) {
         name : req.body.name,
         markedByOwner : false,
         location : {
-            city : req.body.location.city,
             lng : req.body.location.lng,
             lat : req.body.location.lat,
-            postalCode : req.body.location.postalCode,
             street : req.body.location.street
         },
         businessHours : {
             closed : req.body.businessHours.closed,
             opened : req.body.businessHours.opened
+        },
+        assortment : {
+            pizza : req.body.assortment.pizza || false,
+            condoms : req.body.assortment.condoms || false,
+            newspapers : req.body.assortment.newspapers || false,
+            chips : req.body.assortment.chips || false
         }
     });
     entry.save(function (err) {
@@ -95,10 +102,8 @@ exports.add = function (req, res) {
 exports.update = function (req, res) {
     Spaeti.findById(req.params.id, function (err, spaeti) {
         spaeti.name = req.body.name || spaeti.name;
-        spaeti.location.city = req.body.location.city || spaeti.location.city;
         spaeti.location.lng = req.body.location.lng || spaeti.location.lng;
         spaeti.location.lat = req.body.location.lat || spaeti.location.lat;
-        spaeti.location.postalCode = req.body.location.postalCode || spaeti.location.postalCode;
         spaeti.location.street = req.body.location.street || spaeti.location.street;
 
         spaeti.save(function (err) {
