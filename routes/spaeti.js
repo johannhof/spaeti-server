@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 
 var spaetiSchema = new Schema({
     name : String,
+    published : Boolean,
     markedByOwner : Boolean,
     businessHours : {
         closed : [Number],
@@ -73,6 +74,7 @@ exports.add = function (req, res) {
     console.log(req.body);
     var entry = new Spaeti({
         name : req.body.name,
+        published : false,
         markedByOwner : false,
         location : {
             lng : req.body.location.lng,
@@ -102,9 +104,21 @@ exports.add = function (req, res) {
 exports.update = function (req, res) {
     Spaeti.findById(req.params.id, function (err, spaeti) {
         spaeti.name = req.body.name || spaeti.name;
-        spaeti.location.lng = req.body.location.lng || spaeti.location.lng;
-        spaeti.location.lat = req.body.location.lat || spaeti.location.lat;
-        spaeti.location.street = req.body.location.street || spaeti.location.street;
+        if(req.body.location) {
+            spaeti.location.lng = req.body.location.lng || spaeti.location.lng;
+            spaeti.location.lat = req.body.location.lat || spaeti.location.lat;
+            spaeti.location.street = req.body.location.street || spaeti.location.street;
+        }
+        if(req.body.assortment) {
+            spaeti.assortment.pizza = req.body.assortment.pizza || spaeti.assortment.pizza;
+            spaeti.assortment.condoms = req.body.assortment.condoms || spaeti.assortment.condoms;
+            spaeti.assortment.newspapers = req.body.assortment.newspapers || spaeti.assortment.newspapers;
+            spaeti.assortment.chips = req.body.assortment.chips || spaeti.assortment.chips;
+        }
+        if(req.body.businessHours) {
+            spaeti.businessHours.opened = req.body.businessHours.opened || spaeti.businessHours.opened;
+            spaeti.businessHours.closed = req.body.businessHours.closed || spaeti.businessHours.closed;
+        }
 
         spaeti.save(function (err) {
             if(err) {
