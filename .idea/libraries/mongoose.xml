@@ -1,56 +1,5 @@
 <component name="libraryTable">
   <library name="mongoose" type="javaScript">
-    <properties>
-      <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/mixed.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/number.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/objectid.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/string.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/types/array.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/types/buffer.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/types/documentarray.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/version.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/array.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/boolean.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/buffer.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/date.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/documentarray.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/index.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/connection.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/collection.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/types/index.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/types/embedded.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/types/objectid.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/querystream.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/query.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/queryhelpers.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/statemachine.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/utils.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schemadefault.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schematype.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/error.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/index.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/connectionstate.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/document.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/namedscope.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/promise.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/internal.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/model.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/document.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/divergentArray.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/cast.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/validator.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/validation.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/overwriteModel.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/errors/missingSchema.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/virtualtype.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/drivers/node-mongodb-native/objectid.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js" />
-        <item url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/drivers/node-mongodb-native/binary.js" />
-      </sourceFilesUrls>
-    </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/mixed.js" />
       <root url="file://$PROJECT_DIR$/rest/node_modules/mongoose/lib/schema/number.js" />
