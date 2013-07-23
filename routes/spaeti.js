@@ -111,17 +111,17 @@ exports.update = function (req, res) {
       spaeti.location.street = req.body.location.street || spaeti.location.street;
     }
     if (req.body.assortment) {
-      spaeti.assortment.pizza = req.body.assortment.pizza || spaeti.assortment.pizza;
-      spaeti.assortment.condoms = req.body.assortment.condoms || spaeti.assortment.condoms;
-      spaeti.assortment.newspapers = req.body.assortment.newspapers || spaeti.assortment.newspapers;
-      spaeti.assortment.chips = req.body.assortment.chips || spaeti.assortment.chips;
+      spaeti.assortment.pizza = req.body.assortment.pizza !== undefined ? req.body.assortment.pizza : spaeti.assortment.pizza;
+      spaeti.assortment.condoms = req.body.assortment.condoms !== undefined ? req.body.assortment.condoms : spaeti.assortment.condoms;
+      spaeti.assortment.newspapers = req.body.assortment.newspapers !== undefined ? req.body.assortment.newspapers : spaeti.assortment.newspapers;
+      spaeti.assortment.chips = req.body.assortment.chips !== undefined ? req.body.assortment.chips : spaeti.assortment.chips;
     }
     if (req.body.businessHours) {
       spaeti.businessHours.opened = req.body.businessHours.opened || spaeti.businessHours.opened;
       spaeti.businessHours.closed = req.body.businessHours.closed || spaeti.businessHours.closed;
     }
 
-    if(req.body.published){
+    if(req.body.published !== undefined){
       spaeti.published = req.body.published;
     }
 
